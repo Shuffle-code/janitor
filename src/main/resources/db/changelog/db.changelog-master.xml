@@ -13,7 +13,7 @@
     <include
             file="db/changelog/createTables/create-table-account_role.xml"/>
     <include
-            file="db/changelog/createTables/create-table-user_v2.xml"/>
+            file="db/changelog/createTables/create-table-user_v4.xml"/>
     <include
             file="db/changelog/createTables/create-table-authority.xml"/>
     <include

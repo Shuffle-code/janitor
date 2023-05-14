@@ -76,12 +76,12 @@
                     <li sec:authorize="isAuthenticated()" class="nav-item">
                         <a class="nav-link" th:classappend="${activeTab == 'PersonalArea' ? 'active' : ''}" th:href="@{/user}">Личный кабинет</a>
                     </li>
-<!--                    <img-->
-<!--                            th:src="${(session.user == null)} ? '' : '/janitor/image/' + ${session.user.getJanitor().getId()}"-->
-<!--                            class="rounded-circle"-->
-<!--                            height="40"-->
-<!--                            loading="lazy"-->
-<!--                    />-->
+                    <img
+                            th:src="${(session.user == null)} ? '' : '/janitor/image/' + ${session.user.getJanitor().getId()}"
+                            class="rounded-circle"
+                            height="40"
+                            loading="lazy"
+                    />
                 </ul>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <!--                    <a class="btn btn-danger" th:action="@{/logout}" method="post">Выйти</a>-->

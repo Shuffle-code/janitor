@@ -29,6 +29,9 @@ public class SecurityConfig {
 //                .requestMatchers(HttpMethod.PUT, "/upcomingTournaments/disenroll/{playerId}/{tournamentId}").permitAll()
                 .requestMatchers(HttpMethod.GET, "/auth/registration").anonymous()
                 .requestMatchers(HttpMethod.POST, "/auth/register").anonymous()
+                .requestMatchers(HttpMethod.POST, "/auth/invalid-confirmation").anonymous()
+                .requestMatchers(HttpMethod.POST, "/auth/changeUsername").anonymous()
+                .requestMatchers(HttpMethod.POST, "/auth/confirmation").anonymous()
                 .requestMatchers(HttpMethod.GET, "/*").authenticated()
                 .requestMatchers(HttpMethod.POST, "/*").authenticated()
                 .and().csrf().disable();

@@ -22,7 +22,7 @@
       <div class="carousel-inner">
         <div th:each="imageId, i : ${playerImagesId}" class="carousel-item"
              th:classappend="${i.index==0 ? 'active' : ''}">
-          <img th:src="@{'/player/images/' + ${imageId}}" alt="" class="d-block w-100"/>
+          <img th:src="@{'/janitor/images/' + ${imageId}}" alt="" class="d-block w-100"/>
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -39,16 +39,7 @@
       <h4 th:text="${'Фамилия Имя: ' + accountUser.lastname + ' ' + accountUser.firstname}"></h4>
       <h4 th:text="${'E-mail: ' + accountUser.email}"></h4>
       <h4 th:text="${'Телефон: ' + accountUser.phone}"></h4>
-      <h4 th:text="${'Рейтинг: ' + player.rating}"></h4>
-      <h4 th:text="${(player.ratingTtw == null || player.ratingTtw == '')}? 'Рейтинг ttw: ' : ${'Рейтинг ttw: ' + player.ratingTtw}"></h4>
-      <p th:text="${(player.idTtw == null || player.idTtw == '')}? 'ID ttw: ' : ${'ID ttw: ' + player.idTtw}"></p>
-      <p th:hidden="${(player.idTtw != null || player.idTtw != '')}">Если Вы хотите, чтобы ваш любительский
-        рейтинг обновлялся автоматически, заполните, пожалуйста значение "ID TTW", перейдя по ссылке ниже. Данную информацию
-        Вы можете найти на сайте:
-        <a href="http://r.ttw.ru/players/">r.ttw.ru</a>
-        после входа на страничку с вашими данными. В поле "Персональный ID". Информация о текущем рейтинге TTW, обнавляется один раз в сутки.
-      </p>
-      <a th:href="@{'/player?id=' + ${player.id}}" class="btn btn-primary">Изменить личные данные</a>
+      <a th:href="@{'/janitor?id=' + ${player.id}}" class="btn btn-primary">Изменить личные данные</a>
     </div>
     <foot>
       <br>

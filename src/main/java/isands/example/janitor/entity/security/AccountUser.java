@@ -43,13 +43,13 @@ import java.util.stream.Collectors;
     private Set<Authority> authorities;
 
     @Builder.Default
-    private boolean accountNonExpired = true;
+    private boolean accountNonExpired = false;
     @Builder.Default
-    private boolean accountNonLocked = true;
+    private boolean accountNonLocked = false;
     @Builder.Default
-    private boolean credentialsNonExpired = true;
+    private boolean credentialsNonExpired = false;
     @Builder.Default
-    private boolean enabled = true;
+    private boolean enabled = false;
     @Column(name = "email")
     private String email;
     @Column(name = "phone")

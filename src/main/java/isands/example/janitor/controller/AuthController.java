@@ -6,6 +6,7 @@ import isands.example.janitor.entity.security.AccountUser;
 import isands.example.janitor.entity.security.ConfirmationCode;
 import isands.example.janitor.service.EmailService;
 import isands.example.janitor.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,8 +16,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.validation.Valid;
 import java.io.IOException;
 
 @Slf4j

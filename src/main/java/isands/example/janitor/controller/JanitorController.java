@@ -5,6 +5,7 @@ import isands.example.janitor.entity.Janitor;
 import isands.example.janitor.service.JanitorImageService;
 import isands.example.janitor.service.JanitorService;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
-import javax.validation.Valid;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -73,7 +73,7 @@ public class JanitorController {
     @PostMapping("/add")
     @PreAuthorize("hasAnyAuthority('janitor.create', 'janitor.update', 'janitor.read')")
     public String saveJanitor(@Valid Janitor janitor, @RequestParam("files") MultipartFile[] files,
-                             BindingResult bindingResult) {
+                              BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             return "janitor/janitor-form";
         }

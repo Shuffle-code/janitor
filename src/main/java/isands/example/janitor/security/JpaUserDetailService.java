@@ -147,30 +147,31 @@ public class JpaUserDetailService implements UserDetailsService, UserService {
         return accountUserDao.save(accountUser);
     }
 
-    @Override
-    public UserDto findById(Long id) {
-        return null;
-    }
+//    @Override
+//    public UserDto findById(Long id) {
+//        return null;
+//    }
 
     @Override
     public List<UserDto> findAll() {
         return null;
     }
 
-//    @Override
-//    public void generateConfirmationCode(UserDto thisUser, String code) {
-//        ConfirmationCode confirmationCode = ConfirmationCode.builder().
-//                code(code)
-//                .accountUser(userMapper.toAccountUser(thisUser))
-//                .build();
-//        confirmationCodeDao.save(confirmationCode);
-//    }
-
-//    @Override
-//    @Transactional(readOnly = true)
-//    public UserDto findById(Long id) {
+    @Override
+    public void generateConfirmationCode(UserDto thisUser, String code) {
+        ConfirmationCode confirmationCode = ConfirmationCode.builder().
+                code(code)
+                .accountUser(modelMapper.map(thisUser, AccountUser.class))
+                .build();
+        confirmationCodeDao.save(confirmationCode);
+    }
+//            userMapper.toAccountUser(thisUser)
+    @Override
+    @Transactional(readOnly = true)
+    public UserDto findById(Long id) {
+        return modelMapper.map(accountUserDao.findById(id).orElse(null), UserDto.class);
 //        return userMapper.toUserDto(accountUserDao.findById(id).orElse(null));
-//    }
+    }
 
 //    @Override
 //    public List<UserDto> findAll() {
@@ -189,11 +190,6 @@ public class JpaUserDetailService implements UserDetailsService, UserService {
         );
         disable(accountUser);
         update(accountUser);
-    }
-
-    @Override
-    public void generateConfirmationCode(UserDto thisUser, String confirmationCode) {
-
     }
 
     private void enable(final AccountUser accountUser) {
